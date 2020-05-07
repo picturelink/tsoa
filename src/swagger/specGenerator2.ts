@@ -189,7 +189,7 @@ export class SpecGenerator2 extends SpecGenerator {
     });
 
     return {
-      operationId: this.getOperationId(method.name),
+      operationId: this.getOperationId(controllerName, method.name),
       produces: ['application/json'],
       responses: swaggerResponses,
     };
@@ -221,7 +221,7 @@ export class SpecGenerator2 extends SpecGenerator {
       name: 'body',
       schema: {
         properties,
-        title: `${this.getOperationId(method.name)}Body`,
+        title: `${this.getOperationId(controllerName, method.name)}Body`,
         type: 'object',
       },
     } as Swagger.Parameter;

@@ -280,7 +280,7 @@ export class SpecGenerator3 extends SpecGenerator {
     });
 
     return {
-      operationId: this.getOperationId(method.name),
+      operationId: this.getOperationId(controllerName, method.name),
       responses: swaggerResponses,
     };
   }

@@ -10,8 +10,9 @@ export abstract class SpecGenerator {
     return this.getSwaggerType(type);
   }
 
-  protected getOperationId(methodName: string) {
-    return methodName.charAt(0).toUpperCase() + methodName.substr(1);
+  protected getOperationId(controllerName: string, methodName: string) {
+    const controllerNameWithoutSuffix = controllerName.replace(new RegExp('Controller$'), '');
+    return `${controllerNameWithoutSuffix}${methodName.charAt(0).toUpperCase() + methodName.substr(1)}`;
   }
 
   public throwIfNotDataFormat(strToTest: string): Swagger.DataFormat {
